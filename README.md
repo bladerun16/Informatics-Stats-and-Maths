@@ -9,7 +9,7 @@ The material on this repository reflects class activities during the last academ
 
 Chronological list of programs
 
-1. compound_interest
-1. multiplication_with_sum
-1. read_in_interval
+1. [compound_interest](compound_interest.R)
+1. [multiplication_with_sum](multiplication_with_sum.R)
+1. [read_in_interval](read_in_interval)
 
