@@ -7,9 +7,4 @@ Teacher:         [Claudio Sartori](https://www.unibo.it/sitoweb/claudio.sartori/
 
 The material on this repository reflects class activities during the last academic year, currently, the second semester of 2022/2023. The material is not autonomous at all, and should be used only as a complement to class participation.
 
-Chronological list of programs
-
-1. [compound_interest](compound_interest.R)
-1. [multiplication_with_sum](multiplication_with_sum.R)
-1. [read_in_interval](read_in_interval)
 
