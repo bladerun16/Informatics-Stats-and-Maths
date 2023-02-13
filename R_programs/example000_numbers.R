@@ -1,0 +1,39 @@
+.Machine$double.eps
+.Machine$double.neg.eps
+.Machine$double.xmin
+.Machine$double.xmax
+.Machine$double.base
+.Machine$double.digits
+.Machine$double.rounding
+.Machine$double.guard
+.Machine$double.ulp.digits
+.Machine$double.neg.ulp.digits
+.Machine$double.exponent
+.Machine$double.min.exp
+.Machine$double.max.exp
+.Machine$integer.max
+.Machine$sizeof.long
+.Machine$sizeof.longlong
+.Machine$sizeof.long.Machine$double
+.Machine$sizeof.pointer
+
+print(.Machine$integer.max)
+typeof(.Machine$integer.max)
+print(.Machine$integer.max+1)
+typeof(.Machine$integer.max+1)
+
+with(
+  .Machine,{
+    print(integer.max)
+    typeof(integer.max)
+    print(double.xmax)
+  }
+  )
+
+print(.Machine$double.xmax)
+print(.Machine$double.xmax+1)
+print(.Machine$double.xmax*2)
+print(.Machine$double.xmin)
+print(.Machine$double.xmin/2)
+print(.Machine$double.xmin/(2^100))
+typeof(.Machine$double.xmin/34)
