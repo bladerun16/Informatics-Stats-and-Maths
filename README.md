@@ -10,3 +10,5 @@ Teacher:         [Claudio Sartori](https://www.unibo.it/sitoweb/claudio.sartori/
 The material on this repository reflects class activities during the last academic year, currently, the second semester of 2022/2023. The material is not autonomous at all, and should be used only as a complement to class participation.
 
 The materials will be constantly updated after the lectures, when necessary
+
+The Syllabus.xlsx reflects the contents of past lectures and the plans for the forthcoming lectures. It will be constantly updated, in case of changes.
