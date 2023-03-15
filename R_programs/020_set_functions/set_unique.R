@@ -7,8 +7,8 @@ set_unique <- function(v){
   # 
   # parameter:
   # v - vector
-  # s - vector representing a set
   # use:
+  # s - vector representing a set
   # i, j - indexes for external and internal loops
   # return:
   #  s

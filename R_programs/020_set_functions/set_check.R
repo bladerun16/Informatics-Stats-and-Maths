@@ -11,6 +11,9 @@ set_check <- function(v){
   #       return false
   # return true
   n <- length(v)
+  if (n==0){
+    return(TRUE)
+  }
   for (i in seq_len(n-1)){
     for (j in (i+1):n){
       if (v[i]==v[j]){

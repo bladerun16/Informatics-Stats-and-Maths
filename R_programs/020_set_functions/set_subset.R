@@ -15,7 +15,7 @@ function(target, container){
     } # loop on container
     if (! found){
       return(FALSE)
-    }
+    } # end of external loop
     # if we arrive here the current target is in the container
     # and we check the next element in target
   } # loop on target
