@@ -11,4 +11,5 @@
 .Rhistory
 ehthumbs.db
 Thumbs.db
-.ipynb.checkpoint
+.ipynb.checkpoints
+.Rapp.history
