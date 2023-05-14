@@ -79,6 +79,9 @@ quickselect <- function(l, k, pivot_fn){
     return(quickselect(highs, k - length(lows) - length(pivots), pivot_fn))
 } # quickselect - end
 
+
+#####################
+# test program
 # set.seed(46912)
 # l <- sample.int(2000,200000,replace = T)
 l <- 1:200000
