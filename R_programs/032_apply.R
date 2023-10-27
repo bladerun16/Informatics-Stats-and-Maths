@@ -1,6 +1,6 @@
 rm(list=ls())
 m <- as.matrix(
-  read.table("example042_apply_data.txt"
+  read.table("032_apply_data.txt"
              , header = F))
 # for-loop 
 res_for=numeric()
