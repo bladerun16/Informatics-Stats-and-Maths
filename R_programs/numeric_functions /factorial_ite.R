@@ -9,17 +9,17 @@ rm(list = ls())
 #     i: will get all the values from 1 to n
 #     f: the resulting factorial, iteratively computed
 # algorithm:
-# if n is return NA
+# - if n is non number or non positive returns NULL
 # f <- 1
 # repeat varying i from 1 to n
 #    f <- f * i
 # output f
 # ####
-my_fact <- function(n) {
+factorial_ite <- function(n) {
   # interface
-  if (n < 0){
+  if (!is.numeric(n) || n < 0)
     return(NA)
-    }  
+  n = as.integer(n) # non integers are truncated
   f <- 1
   # the sequence seq_len is empty when its argument is 0
   for (i in seq_len(n)) {
@@ -30,14 +30,20 @@ my_fact <- function(n) {
 
 # n <- as.integer(readline("Insert a non-negative integer "))
 n <- -1
-n <- 4
-nf <- my_fact(n)
+n <- 4.4
+nf <- factorial_ite(n)
 if (is.na(nf)) {
   print("Bad input value")
 } else
   cat("The factorial of ", n, " is ", nf, "\n")
 
-# Question: what happens with non integer values?
-#  n <- 3.5
-#  n <- 3.999999999999999
-#  n <- 3.9999999999999999
+##### test program ####
+for (i in 0:10){
+  cat("Factorial(",format(i,width = 2),") = ",
+      format(factorial_ite(i),width = 10),"\n")
+}
+
+
+##### suggested exercise #####
+##### - try a recursive implementation of the Factorial computation
+##### - compare the running times of the two versions
