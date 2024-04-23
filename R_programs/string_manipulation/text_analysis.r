@@ -33,7 +33,7 @@ text_lines <- readLines(file_ref)
 
 
 # control
-cat(text_lines[1])
+print(text_lines[1])
 
 
 # In[3]:
