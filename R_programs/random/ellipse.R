@@ -28,10 +28,14 @@ monte_carlo_ellipse_area <- function(n_simulations, a, b) {
   return(estimated_area)
 } # monte_carlo_ellipse_area - end
 
-# Define the Monte Carlo simulation function
-monte_carlo_ellipse_area_vec <- function(n_simulations, a, b) {
+# Define the Monte Carlo simulation function - vectorized
+# Generate points inside an ellipse centered on the origin
+# with given semi-axes
+monte_carlo_ellipse_area_vec <- function(n_simulations = 1000, a = 1, b = 1) {
+  # generate the two vectors of coordinates
   x <- runif(n_simulations, -a, a)
   y <- runif(n_simulations, -b, b)
+  # generate a boolean vector, true for each point inside the ellipse
   e <- ((x^2) / (a^2)) + ((y^2) / (b^2)) <= 1
   # Calculate the area of the ellipse based on the proportion of points inside the ellipse
   area_ratio <- length(e) / n_simulations
@@ -40,6 +44,9 @@ monte_carlo_ellipse_area_vec <- function(n_simulations, a, b) {
     
   return(estimated_area)
 } # monte_carlo_ellipse_area - end
+
+# #################################################
+# test program
 
 # Define the parameters of the ellipse
 a <- 3  # semi-major axis
