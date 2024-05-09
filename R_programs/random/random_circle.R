@@ -4,36 +4,6 @@ rm(list = ls())
 #   - center x and y            #
 #   - radius r                  #
 # ###############################
-rand.circle <-
-  function(   npoints = 1000
-              , cx = -1
-              , cy = -1
-  ) {
-    r_circle <-
-      data.frame(x = ,
-                 y = )
-    return(r_circle)
-  }
-
-# Samuele
-# 
-rand.circle_samuele <-function(npoints,cx,cy,r){
-  x_tot <- vector(mode="numeric", length=npoints)
-  y_tot <- vector(mode="numeric", length=npoints)
-  i <- 0
-  while(i<npoints){
-    x_r <- runif(1, min=cx-r, max=cx+r)
-    y_r <- runif(1, min=cy-r, max=cy+r)
-    if((x_r-cx)^2+(y_r-cy)^2<=r^2){
-      x_tot[i] <- x_r
-      y_tot[i] <- y_r
-      i <- i+1
-    }
-  }
-  r_circle <- data.frame("x"=x_tot, "y"=y_tot)
-  return(r_circle)
-}
-
 rand.circle <-function(npoints = 1000, 
                        cx = 0,cy = 0, r = 1){
   npoints_adj <- npoints * 4 / pi * 1.1 # 1.1 multiplication 
