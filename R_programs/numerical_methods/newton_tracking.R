@@ -28,15 +28,13 @@ zero_nwt_tracking <- function(f, f.prime
                               , tol = 10E-7
                               , max_loop = 10E3
 ){
-  t <- 1
   x <- vector(mode = "numeric")
-  x[t] <- guess
+  x[1] <- guess
   for (i in 1:max_loop){
-    if (abs(f(x[t])) <= tol){
-      return(list(zero = x[t], track = x))
+    if (abs(f(x[i])) <= tol){
+      return(list(zero = x[i], track = x))
     }
-    x[t+1] <- x[t] - f(x[t]) / f.prime(x[t])
-    t <- t + 1
+    x[i+1] <- x[i] - f(x[i]) / f.prime(x[i])
   }
   return(NULL)
 }
@@ -44,7 +42,7 @@ zero_nwt_tracking <- function(f, f.prime
 # ################################
 # test code
 
-# converges with any value
+# converges with any initial value
 # f <- function(x) {x^3 - 2 * x + 2}
 # f.prime <- function(x) {3 * x^2 - 2}
 # initial <- 1
@@ -52,17 +50,14 @@ zero_nwt_tracking <- function(f, f.prime
 # example of non convergence when guess >abs(1/sqrt(2))
 f <- function(x) {x * exp(-x^2)}
 f.prime <- function(x) {-(2 * x^2 -1) * exp(-x^2)}
-# initial <- 0.499 # try 0.5 for non convergence
-initial <- 0.5 # try 0.5 for non convergence
-
-
-#curve(f, from = -10, to = 2)
-curve(f, from = -2, to = 2)
+initial <- 0.499 # try 0.5 for non convergence
+# initial <- 0.5 # try 0.5 for non convergence
 
 wait <- 1
 result <- zero_nwt_tracking(f, f.prime, initial)
 if (!is.null(result)) {
   hc <- heat.colors(length(result$track) * 2)
+  curve(f, -2,2)
   for (i in seq_along(result$track)) {
     points(result$track[i], f(result$track[i]), col = hc[i])
     Sys.sleep(wait)
