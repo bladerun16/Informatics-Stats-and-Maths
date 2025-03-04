@@ -5,7 +5,8 @@ rm(list=ls())
 # Parameters v:      vector of values,
 #     target: value to be found
 # Output
-#     found:  vector of integers, empty if not found, 
+#     found:  positions where target is found
+#             vector of integers, empty if not found, 
 #             with values between 1 and length of v 
 #             if found
 # Uses
@@ -55,32 +56,32 @@ if (length(f) == 0){
   print(f)
 }
 
-# ####################### #
-# example of timing the execution
-# - decide the range of sizes you want to test 
-#   and the step of sizes
-# - prepare a data structure to collect the results
-# - for each size of interest n
-#   - prepare a random, artificial, set of data of size n
-#     (as an alternative, you can use real data)
-#   - execute the program inside system.time and collect the resulting elapsed time
-# - show the results
-
-ntest <- 4
-nrep <- 1000
-start <- 1
-result <- data.frame(n = vector(mode = "integer", length = ntest), 
-                     time = vector(mode = "double", length = ntest)
-)
-for (i in 1:ntest){
-  n <- 10^(i+start)
-  v <- sample(rng, n, replace = TRUE)
-  target <- sample(rng, 1)
-  result$n[i] <- n
-  result$time[i] <- system.time(
-    for (r in 1:nrep)
-      search_in_vector(v, target)
-    )[3]
-}
-print(result)
-plot(result, log = "x")
+# # ####################### #
+# # example of timing the execution
+# # - decide the range of sizes you want to test 
+# #   and the step of sizes
+# # - prepare a data structure to collect the results
+# # - for each size of interest n
+# #   - prepare a random, artificial, set of data of size n
+# #     (as an alternative, you can use real data)
+# #   - execute the program inside system.time and collect the resulting elapsed time
+# # - show the results
+# 
+# ntest <- 4
+# nrep <- 1000
+# start <- 1
+# result <- data.frame(n = vector(mode = "integer", length = ntest), 
+#                      time = vector(mode = "double", length = ntest)
+# )
+# for (i in 1:ntest){
+#   n <- 10^(i+start)
+#   v <- sample(rng, n, replace = TRUE)
+#   target <- sample(rng, 1)
+#   result$n[i] <- n
+#   result$time[i] <- system.time(
+#     for (r in 1:nrep)
+#       search_in_vector(v, target)
+#     )[3]
+# }
+# print(result)
+# plot(result, log = "x")
