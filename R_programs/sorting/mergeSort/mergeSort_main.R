@@ -1,0 +1,20 @@
+#setwd("~/Dropbox/Didattica/Informatics/0_R/R-class")
+#setwd("c:/Users/claudio.sartori/Downloads")
+rm(list = ls())
+source("mergeSort.R")
+source("is_sorted.R")
+n <- 10
+v <- sample.int(100,n, replace = T)
+# v <- c(1,2,3,4,5,6,7,8)
+print("Before")
+print(v)
+a <- (mergeSort(v))
+print("After")
+# print(a)
+#print(all(a[1:(length(a)-1)]<=a[2:length(a)]))
+# ok <- T
+# for(i in 2:length(a))
+#   ok <- ok && a[i]>=a[i-1]
+# print(ok)
+cat("Is it sorted? ")
+cat(is.Sorted(a),"\n")
