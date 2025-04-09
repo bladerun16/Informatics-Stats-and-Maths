@@ -19,10 +19,12 @@ my_fact <- function(n){ # interface
   return(f) # return the result to the calling program
 } # my_fact - end
 
-# ###############################
+# ############################### 
 # Test
 repeat{
-  n <- as.integer(readline("Insert a non-negative integer "))
-  cat("The factorial of ",n," is ",my_fact(n),"\n\n")
-  print(" to exit")
+  n <- as.integer(readline("Insert a non-negative integer (-1 to exit) "))
+  if (n >= 0){
+    cat("The factorial of ",n," is ",my_fact(n),"\n\n")
+  }
+  else break
 } # repeat - end
