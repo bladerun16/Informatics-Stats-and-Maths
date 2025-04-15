@@ -92,22 +92,20 @@ topZeroLine <- function(a){
 # Alternative
 # which.is.max(apply(A,1,function(x) sum(x==0)))
 
-# ############################################
-# seqHole - produces a sequence with a hole
-# example: seqHole(4,2) -> 1,3,4
-seqHole <- function(n # ending value of the sequence
-                    , k # position of the hole, must be 
-                        # between 1 and n
-                    ){
-  return((1:n)[which((1:n)!=k)])
-} # end: seqHole
+# # ############################################
+# # seqHole - produces a sequence with a hole
+# # example: seqHole(4,2) -> 1,3,4
+# seqHole <- function(n # ending value of the sequence
+#                     , k # position of the hole, must be 
+#                         # between 1 and n
+#                     ){
+#   return((1:n)[which((1:n)!=k)])
+# } # end: seqHole
 
 # ############################################
 # minorOfMatrix - given a matrix A produces the minor w.r.t. ij
 # 
 minorOfMatrix <- function(A, i, j){
-#  n <- nrow(A)
-#  return(A[seqHole(n,i),seqHole(n,j)])
   return(A[-i,-j])
 } # end - minorOfMatrix
 
