@@ -1,3 +1,11 @@
+# ###################################### #
+# Functions for matrices                 #
+# Includes:                              #
+# - myRref - reduced row echelon form    #
+# - myDet  - determinant using myRref    #
+# - isEchelon - test                     #
+# - some utility functions               #
+# 
 # ##################################### #
 # Row Reduced Echelon Form              #
 #                                       #
@@ -168,3 +176,121 @@ myRref <- function(m) {
   } # for (r in 1:norow)
   return(m)
 } # myRef - end
+
+# ########################## #
+# myDet                      #
+# computes the determinant   #
+# using myRref               #
+#                            #
+# Params:                    #
+#  m - matrix                #
+# Output:                    #
+#  d - determinant           # 
+# Use:                       #
+# - scale (global variable)  #                         
+# Algo:                      #
+# - initialize scale to 1    #
+# - call myRref on m         #
+#    implicitly updades scale#
+# - return scale             #
+# ########################## #
+myDet <- function(m) {
+  if (nrow(m) != ncol(m))
+    return(NULL)
+  if (nrow(m) == 0)
+    return(0)
+  if (nrow(m) == 1)
+    return(m)
+  if (nrow(m) == 2)
+    return(m[1, 1] * m[2, 2] - m[1, 2] * m[2, 1])
+  scale <- 1
+  myRref(m)
+  return(scale)
+} # myDet - end
+
+isEchelon <-
+  function(m) {
+    norow <- nrow(m)
+    if (norow == 1)
+      return(TRUE)
+    nocol <- ncol(m)
+    # initialize pivot to nocol+1
+    pivot <- rep(nocol + 1, norow)
+    for (i in 1:norow) {
+      for (j in 1:nocol)
+        if (m[i, j] != 0) {
+          pivot[i] <- j
+          break  # jump out of the inner loop
+        }
+    }  # now the pivot vector is filled with
+    # the positions of the leading elemens
+    # or nocol+1 for zero rows
+    for (i in 2:norow) {
+      if (pivot[i] <= pivot[i - 1])
+        # consecutive pivot violation returns false
+        # unless the row i is zero, in this case pivot==nocol+1
+        if (pivot[i] != nocol + 1)
+          return(FALSE)
+    }
+    return(TRUE)
+  }
+
+isRref <-
+  function(m) {
+    norow <- nrow(m)
+    if (norow == 1)
+      return(TRUE)
+    nocol <- ncol(m)
+    # initialize pivot to nocol+1
+    pivot <- rep(nocol + 1, norow)
+    for (i in 1:norow) {
+      for (j in 1:nocol)
+        if (m[i, j] != 0) {
+          pivot[i] <- j
+          break  # jump out of the inner loop
+        }
+    }  # now the pivot vector is filled with
+    # the positions of the leading elements
+    # or nocol+1 for zero rows
+    for (i in 2:norow) {
+      if (pivot[i] <= pivot[i - 1])
+        # consecutive pivot violation returns false
+        # unless the row i is zero, in this case pivot==nocol+1
+        if (pivot[i] != nocol + 1)
+          return(FALSE)
+    }
+    for (i in 1:min(norow,nocol)){
+      if (pivot[i]!=nocol+1 & m[i,pivot[i]]!=1){
+        return(FALSE)
+      }
+      for (j in (1:nocol)[-pivot[i]]){
+        if (m[i,j]!=0){
+          return(FALSE)
+        }
+      }
+    }
+    return(TRUE)
+  } # isRref - end
+
+############################################################# #
+# clean                                                       #
+# it is necessary to deal with the cases where approximations #
+# lead to results where the element ere "near 0" and "near 1" #
+###################################################################
+# given a matrix whose elements should be either 0 or 1           #
+# transform in 0 or 1 all the elements whose distance from 0 or 1 #
+# is smaller than a given tolerance                               #
+###################################################################
+clean <- function(m, tolerance=10e-14){
+  for (i in 1:nrow(m)){
+    for (j in 1:ncol(m)){
+      if (abs(m[i,j])<=tolerance){
+        m[i,j]<-0
+      } else if (abs(m[i,j])-1 <= tolerance){
+        m[i,j]<-1
+      } # if ... else
+    } # for (j in 1:ncol(m))
+  } #for (i in 1:nrow(m))
+  return(m)
+} # clean - end
+

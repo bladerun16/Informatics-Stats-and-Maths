@@ -1,8 +1,13 @@
+# test program
+# compute the determinant with
+# - transformation to rref
+# - Laplace formula
+# - standard library
 rm(list = ls())
-# setwd("~/Dropbox/Didattica/Informatics/0_R/R-class")
 source('determinant_laplace.R')
 source('../rref/rref.R')
-n <- 12
+set.seed(42)
+n <- 13
 A <- matrix(as.double(sample(-1:1,n^2,T)), nrow = n)
 cat("Sparsity",sum(as.vector(A)==0)/length(A)*100,"\n")
 #print(A)
@@ -13,6 +18,6 @@ cat("Time determinant standard library", ptm[3],"\n")
 # cat(
 #   "Value with Laplace ", dL,
 #     "\nValue with standard", d)
-scale <- 1
-ptm <- system.time(rrefA <- myRref(A))
-cat("Time myRref", ptm[3],"\n")
+# scale <- 1
+ptm <- system.time(myDet(A))
+cat("Time myDet", ptm[3],"\n")
