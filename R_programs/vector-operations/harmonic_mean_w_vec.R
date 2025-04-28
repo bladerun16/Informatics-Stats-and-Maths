@@ -13,7 +13,7 @@
 
 ### CODE
 N=1000000000
-a <- sample(N)
+a <- c( 30,50 )
 
 tml <- system.time({
   s <- 0
@@ -21,13 +21,13 @@ tml <- system.time({
   for ( i in seq_along(a) ) 
     s <- s + ( 1 / a[i] )
   
-  hm <- length(a) / s
+  hm_loop <- length(a) / s
 })
 #cat( "The harmonic mean is", hm, "\n" )
 cat("Time for harmonic mean with ",N," elements: ", tml[3],"\n")
 tmv <- system.time({
   s <- sum(1/a)
-  hm <- length(a) / s
+  hm_vec <- length(a) / s
 })
 #cat( "The harmonic mean with vectorized computation is", hm, "\n" )
 cat("Time for vectorized harmonic mean with ",N," elements: ", tmv[3],"\n")
