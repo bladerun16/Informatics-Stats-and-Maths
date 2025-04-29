@@ -95,7 +95,8 @@ positions_a = gregexpr(pattern = "a", text = states, ignore.case = TRUE)
 print(head(positions_a))
 
 
-# `gregexpr` returns for each input element the list of positions where the pattern appears. The `unlist` command *flattens* the list to a vector. 
+# `gregexpr` returns for each input element the list of positions where the pattern appears. 
+# The `unlist` command *flattens* the list to a vector. 
 
 # In[10]:
 
@@ -104,7 +105,8 @@ positions_a <- unlist(unlist(positions_a))
 print(positions_a)
 
 
-# If you inspect positions a you’ll see that it contains some negative numbers -1. This means there are no "a" in that name. 
+# If you inspect positions a you’ll see that it contains 
+# some negative numbers -1. This means there are no "a" in that name. 
 # 
 # We should count only the number of positive values.
 
