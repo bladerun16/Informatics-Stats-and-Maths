@@ -21,6 +21,18 @@ rm(list = ls())
 # install.packages("readxl")
 library(readxl)
 
+# ###############################
+# is.Increasing
+# returns true if the vector is strictly increasing
+# vectorized version
+# ##############################################
+is.Increasing <- function(a){
+  if (length(a) == 1)
+    return(T)
+  increasing <- sum(a[-1] <= a[-length(a)])==0
+  return(increasing)
+} # is.Increasing - end
+
 # ########################### #
 # average_daily_consumption   #
 # ########################### #
@@ -44,7 +56,7 @@ library(readxl)
 #   - add to the i-th position of adc the ratio between differences of 
 #     readings in i and i-1 and the difference of omologous dates
 average_daily_consumption <- function(dates,readings){
-  if (length(dates)!=length(readings) | length(dates)==0)
+  if (length(dates)!=length(readings) | length(dates)==0 | !is.Increasing(dates))
     return(NULL)
   adc <- vector(mode = "double", length = length(readings)-1)
   for (i in 2:length(dates)){
@@ -74,25 +86,34 @@ average_daily_consumption_v <- function(dates,readings){
 # examine the input file to understand the structure and the data types
 # >>> check date format
 # test program
-# fn <- "data/readings.csv"
 # sep = ","
 # header = TRUE
-fn <- "data/readings.xlsx"
 # ########################
 # reading csv
-# sep = "\t"
-# header = FALSE
-# df <- read.csv(fn, header = header, sep = sep)
-# names(df) <- c("readingDates", "readings") # assign names
+fn <- "data/readings_gas.csv"
+sep = "\t"
+header = FALSE
+df <- read.csv(fn, header = header, sep = sep)
+names(df) <- c("readingDates", "readings") # assign names
 # reading csv - end
 # #######################
 # reading excel
-df <- read_excel(fn)
-names(df) <- c("readingDates", "readings", "to_ignore") # rename
+# fn <- "data/readings.xlsx"
+# df <- read_excel(fn)
+# names(df) <- c("readingDates", "readings", "to_ignore") # rename
+# reading excel - end
+# # #####################
+
 # check the format of readingDates
 # if "string" it must be converted, if "POSIX..." it's already a date
 class(df$readingDates)
-print(df)
+# print(df)
+# if necessary, convert dates
+if (class(df$readingDates)=="character"){
+  format = "%d/%m/%y"
+  df$readingDates <- as.Date(df$readingDates, format = format)
+}
+  
 # adc <- average_daily_consumption(as.Date(df$readingDates,format = "%d/%m/%y"),df$readings)
 adc <- average_daily_consumption(df$readingDates,df$readings)
 plot(adc, axes=FALSE, xlab="", ylab="Average consumption", type = "b")
