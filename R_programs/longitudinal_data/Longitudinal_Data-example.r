@@ -23,7 +23,6 @@
 # - date formats
 # 
 
-# In[1]:
 # file.path joins two strings as component of a pathname
 # using this we make the r program "portable", it can be executed in different
 # operating systems without any change
@@ -34,39 +33,21 @@ df <- read.csv(file.path(data_folder,fn))
 
 # Transform date expressed in characters into proper dates
 
-# In[2]:
-
-
 df$readingDates <- as.Date(df$readingDates, format = "%Y-%m-%d")
 
-# In[3]:
-
-
 plot(df$readingDates, df$readings, type = "b")
-
-
-
-# In[4]:
-
-
+title(main = "Doubling points in solid red")
 # the file with the function definition must be available in the current directory
 source("doublingPoints.R")
 
 # Find the doubling points using the function previously developed
 
-# In[5]:
-
-
 doubling <- doublingPoints(df$readings)
 df$readingDates[doubling]
 
-# In[6]:
+points(df$readingDates[doubling],df$readings[doubling], col = "red", pch=19)
+# diff(df$readingDates[doubling], difference = 1)
 
+# print(paste("The mean doubling time is", mean(diff(df$readingDates[doubling], difference = 1))))
 
-diff(df$readingDates[doubling], difference = 1)
-
-# In[7]:
-
-
-print(paste("The mean doubling time is", mean(diff(df$readingDates[doubling], difference = 1))))
 
