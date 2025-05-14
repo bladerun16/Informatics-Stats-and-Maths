@@ -1,8 +1,13 @@
-# find doubling points
+# Doubling points
+# the first reading is a doubling point
+# next doubling point is next element whose value is not smaller 
+# than the last doubling point
 #' Find the doubling points in a longitudinal series of data
 #'
-#' @param r a series of longitudinal data
-#' @return The vector of indexes where the series value is the minimum 
+#Param:
+# - r: a series of longitudinal data
+#Return:
+# - The vector of indexes where the series value is the minimum 
 #'         which is not less than the double
 #'         of the value in the previous returned index; 
 #'         the first returned index is the

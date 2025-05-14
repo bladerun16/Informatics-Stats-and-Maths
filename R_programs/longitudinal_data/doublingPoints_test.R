@@ -4,9 +4,15 @@ rm(list = ls())
 source("doublingPoints.R")
 fn <- "data/readings.csv"
 df <- read.csv(fn)
-print(doublingPoints(df$readings))
+df$readingDates <- as.Date(df$readingDates)
 
-# Doubling point
-# the first reading is a doubling point
-# next doubling point is next element whose value is not smaller 
-# than the last doubling point
+dp <- doublingPoints(df$readings)
+
+plot(df$readingDates,df$readings
+     , type = "b"
+     , main ="Doubling points in solid red"
+     , xlab = "Reading Dates"
+     , ylab = "Readings"
+     )
+points(df$readingDates[dp],df$readings[dp], col = "red", pch = 16)
+
