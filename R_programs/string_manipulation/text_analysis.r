@@ -186,7 +186,7 @@ nrow(words_non_stop_tb)
 # In[17]:
 
 
-require(wordcloud)
+# require(wordcloud2)
 # library(RColorBrewer)
 
 
@@ -194,10 +194,10 @@ require(wordcloud)
 
 
 # will display only words with frequency not less than threshold
-freqThreshold <- 2
-# control
-cat("There are", sum(words_non_stop_tb$Freq>=freqThreshold),
-    "words with frequency not less than", freqThreshold)
+# freqThreshold <- 2
+# # control
+# cat("There are", sum(words_non_stop_tb$Freq>=freqThreshold),
+#     "words with frequency not less than", freqThreshold)
 
 
 # In[19]:
