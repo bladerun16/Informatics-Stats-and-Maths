@@ -7,14 +7,24 @@
 #   i, j : pointers to elements of list1 and list2 under consideration
 # Algorithm
 # input of list1 and list2
-# prepare an empty variable intersection
+# prepare an empty variable intersection, 
 # set s to 0
-# repeat varying i from 1 to the length of list1
-#   repeat varying j from 1 to the length of list2
-#     if element in position i of list1 is equal to element in position j of list2
-#       increment s by 1
-#       store the element in position i of list1 into position s of intersection
+# set i to 1
+# set j to 1
+# 
+# repeat while i is less than or equal to the length of list1 and j is less than or equal to the length of list2
+#   if element in position i of list1 is equal to element in position j of list2
+#     increment s by 1
+#     store the element in position i of list1 into position s of intersection
+#     increment i by 1
+#     increment j by 1
+#   otherwise 
+#     if element in position i of list1 is less than element in position j of list2
+#       increment i by 1
+#     otherwise
+#       increment j by 1# output intersection
 # output intersection
+# 
 rm(list = ls()) # clear the workspace
 # filenames for input and output
 file1 <- "list1_sorted.txt"
