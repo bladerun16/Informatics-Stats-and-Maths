@@ -1,6 +1,6 @@
 # intersect_lists_nested_loop.R
 # Assumes each input file contains one element per line
-# Use 
+# Use
 #   list1, list2 : lists of values
 #   intersection : list in output
 #   s: pointer to last element of intersection
@@ -44,10 +44,17 @@ if (length(intersection) == 0) {
   message("No matches found. Writing empty file: ", outfile)
   writeLines(character(0), con = outfile)
 } else {
-  message("Found ", length(intersection), " match(es). Writing to: ", outfile)
+  message("Found ",
+          length(intersection),
+          " match(es). Writing to: ",
+          outfile)
   writeLines(intersection, con = outfile)
 }
 
 # Also print to stdout
 cat("Intersection (in order found):\n")
-if (length(intersection) == 0) cat("(none)\n") else cat(paste0(intersection, collapse = "\n"), "\n")
+if (length(intersection) == 0) {
+  cat("(none)\n")
+} else {
+  cat(paste0(intersection, collapse = "\n"), "\n")
+}
