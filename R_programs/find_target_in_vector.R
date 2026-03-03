@@ -23,25 +23,16 @@ rm(list = ls())
 colors <- c("Red", "Blue", "Green", "Orange")
 target <- readline("Insert target color ")
 found <- 0
-# i <- 1
-# while (i <= length(colors) & found == 0){
-#   if (colors[i]==target){
-#     found <- i
-#   }
-#   i <- i + 1
-# }
-
 for (i in seq_along(colors)){
     if (colors[i]==target){
       found <- i
       break
-    }
-}
+    } # if (colors[i]==target)
+} # for (i in seq_along(colors))
+# output result
 cat(target)
-
 if (found == 0){
   cat(" not found")
-} else {
+} else { # found
   cat(" found in position ",found)
-  
 }
