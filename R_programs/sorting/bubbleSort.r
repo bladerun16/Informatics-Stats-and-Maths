@@ -1,3 +1,13 @@
+# ##################################
+# Bubble Sort
+# Idea 1
+#   compare each element whit the following, from the first to the
+#   one before last, if they are unordered swap them, 
+#   bigger elements will move towards the end
+#   smaller elements will move towards the beginning
+# Idea 2
+#   repeat if the last loop has changed something, 
+#   if the last loop did not change anything then the vector is sorted
 bubbleSort <- function(x){
   # If the vector has 0 or 1 element, it is already sorted
   if (length(x) <= 1) return(x)

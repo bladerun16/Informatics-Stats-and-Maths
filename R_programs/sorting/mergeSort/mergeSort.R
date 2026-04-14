@@ -13,7 +13,7 @@
 # merge left and right into result
 # return the result
 mergeSort <- function(m) {
-  if (length(m) <= 1)
+  if (length(m) <= 1) # base case - function call ends
     return(m)
   else{
     middle <- as.integer(length(m) / 2)
@@ -83,4 +83,4 @@ merge <- function(left,right) {
   if (lr-pr >= 0)
     result[pt:(ll+lr)] <- right[pr:lr]
   return (result)
-}
+} # merge - end
