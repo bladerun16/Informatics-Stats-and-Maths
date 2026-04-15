@@ -15,13 +15,14 @@
 #   get system time for the selectionSort of x and store it in sortTime
 # plot sizes and sort time
 rm(list = ls())
-source("/cloud/project/R_programs/sorting/selectionSort.R")
-source("/cloud/project/R_programs/sorting/mergeSort/mergeSort.R")
-source("/cloud/project/R_programs/sorting/bubbleSort.r")
+source("selectionSort.r")
+source("mergeSort/mergeSort.r")
+source("bubbleSort.r")
 # sortFun <- selectionSort
-# sortFun <- bubbleSort
-sortFun <- mergeSort
-numScales <- 6
+sortFun <- bubbleSort
+# sortFun <- selectionSort
+# sortFun <- mergeSort
+numScales <- 5
 scales <- 1:numScales
 sizes <- 10^scales
 sortTimes <- numeric(length(sizes)) # initialise the vector of results
@@ -32,6 +33,8 @@ for (i in 1:numScales){
                      # the function that I want to test
   })["elapsed"]
 }
-sortTimesMS <- sortTimes
+# sortTimesMS <- sortTimes
+sortTimesBS <- sortTimes
+# sortTimesSS <- sortTimes
 plot(sizes,sortTimes, log="x")
 
