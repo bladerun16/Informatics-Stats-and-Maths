@@ -45,15 +45,17 @@ laplace_det <- function(M) {
   return(det_val)
 } # laplace_det
 
-M <- matrix(data = c(1,0,0,1), nrow = 2, byrow = TRUE)
-M <- matrix(data = c(0,1,1,0), nrow = 2, byrow = TRUE)
-M <- matrix(data = c(2,0,0,1/2), nrow = 2, byrow = TRUE)
-M <- matrix(c(1, 2, 3,
-              0, 4, 5,
-              1, 0, 6), nrow = 3, byrow = TRUE)
+# test program
+
+# M <- matrix(data = c(1,0,0,1), nrow = 2, byrow = TRUE)
+# M <- matrix(data = c(0,1,1,0), nrow = 2, byrow = TRUE)
+# M <- matrix(data = c(2,0,0,1/2), nrow = 2, byrow = TRUE)
+# M <- matrix(c(1, 2, 3,
+#               0, 4, 5,
+#               1, 0, 6), nrow = 3, byrow = TRUE)
 random_square_matrix <- function(n) {
   matrix(runif(n * n), nrow = n, ncol = n)
 }
-M <- random_square_matrix(12)
-# print(M)
+M <- random_square_matrix(11)
+print(M)
 print(laplace_det(M))
