@@ -1,3 +1,7 @@
+# Determinant with Laplace formula
+# This implementation chooses the row or columns with the 
+# minimum number of non-zero elements before calling recursively 
+# determinant of the co-factor
 # ##############################
 # topZeroRC                    #
 # ##############################

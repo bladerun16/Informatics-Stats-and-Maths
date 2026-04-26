@@ -1,4 +1,6 @@
 # function determinant(M):
+#   recursive implementation with co-factors
+# Algorithm:
 #   n = number of rows of M
 #   
 #   if n == 1:
@@ -45,6 +47,7 @@ laplace_det <- function(M) {
   return(det_val)
 } # laplace_det
 
+# ===========================
 # test program
 
 # M <- matrix(data = c(1,0,0,1), nrow = 2, byrow = TRUE)

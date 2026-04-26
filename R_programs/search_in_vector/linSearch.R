@@ -31,8 +31,8 @@ linSearch <- function( searchList, target){
       result$found <- TRUE
       return(result) # exit from the procedure
     } # if searchList[pos] == target
-    if (searchList[pos] < target){
-      result$position <- position
+    if (searchList[pos] > target){
+      result$position <- pos
       result$found <- FALSE
       return(result)
     } # if searchList[pos] < target
@@ -41,5 +41,5 @@ linSearch <- function( searchList, target){
   result$position <- length(searchList) + 1
   result$found <- FALSE
   return(result)
-} # binSearch: end
+} # linSearch: end
 
