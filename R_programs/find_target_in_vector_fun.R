@@ -9,15 +9,12 @@
 # set found to 0
 # 
 # repeat varying i from 1 to length of v
-# 
-# if the position i of v is equal to
-# target
-# 
-# set found to i and stop repeating
-# 
-# if found is zero display not found
-# 
-# else display the value of found
+#   if the content in position i of v is equal to target
+#     set found to i and stop repeating
+# if found is zero 
+#   return not found
+# else 
+#   return the position where target was found
 rm(list = ls())
 
 find_target <- function(v, target) {
