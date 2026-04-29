@@ -13,14 +13,31 @@
 
 ### CODE
 
-a <- c( 1, 2, 3 )
-b <- c( 4, 5, 6 )
+n <- 10000000
+a <- runif(n)
+b <- runif(n)
 
-sum <- 0
-i <- 1
-while ( i <= length(a) ) {
-  sum <- sum + ( a[i] * b[i] )
-  i <- i + 1
-}
-cat( "The dot product of vectors is", sum )
+times <- system.time({
+  sum_ab <- 0
+  i <- 1
+  while (i <= length(a)) {
+    sum_ab <- sum_ab + (a[i] * b[i])
+    i <- i + 1
+  }
+})
+cat("Timing with while        ",times,"\n")
 
+times <- system.time({
+  sum_ab <- 0
+  for (i in seq_along(a)) {
+    sum_ab <- sum_ab + (a[i] * b[i])
+  }
+})
+
+cat("Timing with for          ",times,"\n")
+
+times <- system.time({
+  sum_ab <- sum(a*b)
+})
+
+cat("Timing with vectorisation",times,"\n")

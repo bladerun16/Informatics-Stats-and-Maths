@@ -12,8 +12,11 @@
 # print count
 
 ### CODE
+n <- 1000000
+na_frac <- 0.1
+a <- sample.int(n)
+a[sample.int(n, size=as.integer(n*na_frac))] <- NA
 
-a <- c( 2, 5, 7, NA, 3, 5, NA, NA, 1 )
 
 count <- 0
 i <- 1
@@ -23,5 +26,8 @@ while ( i <= length(a) ) {
   }
   i <- i + 1
 }
-cat( "The number of valid elements is", count )
+cat( "The number of valid elements is", as.integer(count),"\n" )
+
+cat( "The number of valid elements is", sum(!is.na(a)),"\n" )
+
 

@@ -1,6 +1,6 @@
 # example with a matrix
 # Create a matrix with n rows and ncol columns
-n <- 1000 # number of rows
+n <- 16 # number of rows
 ncol = 4
 my_matrix <- matrix(sample(n), ncol = ncol)
 print("Original Matrix:")
@@ -31,3 +31,15 @@ column_means <- apply(mtcars, 2, mean)
 # Print the result
 print("Mean of each column:")
 print(column_means)
+
+# discretise real-valued columns
+real_valued <- c("mpg", "disp", "hp", "drat", "wt", "qsec")
+mtcars_discretised <- mtcars
+
+discretise <- function(x, buckets=3, labels=c("low","medium","high")){
+  return(cut(x,buckets,labels))
+}
+
+
+mtcars_discretised[real_valued]<-lapply(mtcars[real_valued],discretise)
+print(mtcars_discretised)
