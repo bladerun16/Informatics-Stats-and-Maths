@@ -75,7 +75,7 @@ pi_estimate_vec <- function(nthrows = 100, ret = 'count'){
 
 
 # n <- 1000000
-n <- 10000
+n <- 1000000
 set.seed(42)
 print("Running pi_estimate")
 print(system.time({pi_est <- pi_estimate(n)}))

@@ -42,7 +42,8 @@ plot(x, y,
      xlab = "Weight",               # x-axis label
      ylab = "Miles per Gallon",      # y-axis label
      col = "blue",                  # point color
-     pch = 19)                      # plotting symbol: 19 = solid circle
+     pch = 19
+     )                      # plotting symbol: 19 = solid circle
 
 # abline() is a low-level plotting function: it adds to the current plot rather
 # than creating a new one. Here it adds a linear regression line.
