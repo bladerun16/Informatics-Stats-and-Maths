@@ -1,7 +1,12 @@
 rm(list=ls())
-# #####################
-# search_in_vector    #
-# #####################
+# ########################################### #
+# Search positions fo occurrencies of target  #
+# in a vector                                 #
+# Loops (for and while) vs vectorised     #
+# ########################################### #
+# #################### #
+# search_in_vector_for #
+# #################### #
 # Parameters v:      vector of values,
 #     target: value to be found
 # Output
@@ -22,7 +27,7 @@ rm(list=ls())
 #       set the n_found position of found to i
 # return the vector "found"
 # 
-search_in_vector <- function(v, target) {
+search_in_vector_for <- function(v, target) {
   # initialization
   n_found <- 0 # at the moment, none is found
   found <- vector(mode = "integer") # prepares an empty vector
@@ -36,7 +41,7 @@ search_in_vector <- function(v, target) {
     } # if (v[i] == target)
   } # for (i in seq_along(v))
   return(found)
-} # search_in_vector: end
+} # search_in_vector_for: end
 
 search_in_vector_while <- function(v, target) {
   # initialization
@@ -91,21 +96,14 @@ search_in_vector_vec <- function(v, target) {
 # test program        #
 # #####################
 #colors <- c("Red", "Blue", "Green", "Orange", "Green")
-m <- 10
-n <- 3000000
-v <- sample.int(m, size = n, replace = T)
-target <- sample.int(m, size = 1)
-
-# f <- search_in_vector(v, target)
-# if (length(f) == 0){
-#   cat(" not found")
-# } else {
-#   cat(" found in position\n")
-#   print(f)
-# }
+m <- 100
+n <- 30000000
+# prepare a vector with a random repetitions of m targets
+v <- sample.int(m, size = n, replace = T) # prepare vector
+target <- sample.int(m, size = 1) # prepare target
 
 cat("Search time with for loop   ",
-    system.time(f <- search_in_vector(v, target))[1],# [1] selects user time
+    system.time(f <- search_in_vector_for(v, target))[1],# [1] selects user time
     "\n"
     
 )
@@ -115,14 +113,6 @@ cat("Search time with while loop ",
     "\n"
     
 )
-
-# f <- search_in_vector_vec(v, target)
-# if (length(f) == 0){
-#   cat(" not found")
-# } else {
-#   cat(" found in position\n")
-#   print(f)
-# }
 
 cat("Search time vectorised      ",
     system.time(f <- search_in_vector_vec(v, target))[1],
