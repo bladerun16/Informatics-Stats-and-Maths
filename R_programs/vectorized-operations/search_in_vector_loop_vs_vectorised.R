@@ -1,7 +1,7 @@
 rm(list=ls())
 # set.seed(43) # comment for non repeatable experiment
 # ########################################### #
-# Search positions fo occurrencies of target  #
+# Search positions for occurrencies of target #
 # in a vector                                 #
 # Loops (for and while) vs vectorised         #
 # ########################################### #
@@ -11,7 +11,7 @@ rm(list=ls())
 # search_in_vector_for #
 # #################### #
 # Parameters v:      vector of values,
-#     target: value to be found
+#       target: value to be found
 # Output
 #     found:  positions where target is found
 #             vector of integers, empty if not found, 

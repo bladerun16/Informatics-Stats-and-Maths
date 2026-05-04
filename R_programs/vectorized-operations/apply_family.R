@@ -34,11 +34,11 @@ print(column_means)
 
 # discretise real-valued columns
 real_valued <- c("mpg", "disp", "hp", "drat", "wt", "qsec")
-mtcars_discretised <- mtcars
+mtcars_discretised <- mtcars # copy the datframe into a new one that I will partially discretise
 
 discretise <- function(x, buckets=3, labels=c("low","medium","high")){
-  return(cut(x,buckets,labels))
-}
+  return(cut(x,buckets,labels)) # the function cut is in the language
+} # encapsulates cut to provide sensible defaults for buckets and labels
 
 
 mtcars_discretised[real_valued]<-lapply(mtcars[real_valued],discretise)
