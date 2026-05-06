@@ -2,7 +2,8 @@
 # coding: utf-8
 
 # # Text analysis
-# Extract from a normal text, such as a book chapter, the _most frequent_ and _significant_ words, then plots them in a _wordcloud_, according to the frequencies.  
+# Extract from a normal text, such as a book chapter, the _most frequent_ and _significant_ words, 
+# then plots them in a _wordcloud_, according to the frequencies.  
 # This is the workflow:
 # 
 # 1. Load text
@@ -119,7 +120,8 @@ head(words_tb)
 # The `order` function produces the index permutation which sorts a 
 # vector in ascending order.
 # 
-# To obtain the descending order it is sufficient to change the sign of frequencies
+# To obtain the descending order it is sufficient to change the sign 
+# of frequencies
 
 # In[11]:
 
@@ -154,7 +156,7 @@ head(stopwords)
 # 
 # The `setdiff` function computes the set difference where sets are represented as vectors
 # is.element(<target>,<check>) 
-#      generates a true for each element of target that is conained in check
+#      generates a true for each element of target that is contained in check
 #      false if it is not contained
 # In[14]:
 
@@ -180,7 +182,7 @@ nrow(words_non_stop_tb)
 
 # uncomment line below if the wordcloud package was never installed
 # then comment it again
-# install.packages("wordcloud")
+install.packages("wordcloud")
 
 
 # In[17]:
