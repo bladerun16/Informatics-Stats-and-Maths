@@ -29,13 +29,15 @@ zero_nwt_tracking <- function(f, f.prime
                               , tol = 10E-7
                               , max_loop = 10E3
 ){ # function starts
+  t <- 1
   x <- vector(mode = "numeric")
-  x[1] <- guess
+  x[t] <- guess
   for (i in 1:max_loop){
-    if (abs(f(x[i])) <= tol){ # tolerance reached, exit
-      return(list(zero = x[i], track = x))
+    if (abs(f(x[t])) <= tol){ # tolerance reached, exit
+      return(list(zero = x[t], track = x))
     }
-    x[i+1] <- x[i] - f(x[i]) / f.prime(x[i])
+    x[t+1] <- x[t] - f(x[t]) / f.prime(x[t])
+    t <- t + 1
   }
   # maximum number of iteration reached without approaching the zero
   return(NULL)
@@ -52,8 +54,8 @@ zero_nwt_tracking <- function(f, f.prime
 # example of non convergence when guess >abs(1/sqrt(2))
 f <- function(x) {x * exp(-x^2)}
 f.prime <- function(x) {-(2 * x^2 -1) * exp(-x^2)}
-initial <- 0.499 # try 0.5 for non convergence
-# initial <- 0.5 # try 0.5 for non convergence
+# initial <- 0.499 # try 0.5 for non convergence
+initial <- 0.5 # try 0.5 for non convergence
 
 
 #curve(f, from = -10, to = 2)

@@ -34,6 +34,17 @@ f <- function(x) {x^3 - 2 * x + 2}
 # - return x
 # 
 zero_bisect <- function(f, left, right, tol = 10E-7){
+  if (f(left)*f(right)>0){
+    return(NULL)
+  } else {
+    if (f(left)==0){
+      return(left) 
+    } else {
+      if (f(right)==0){
+        return(right)
+      }
+    }
+  }
   x <- (left + right) / 2
   while (abs(f(x)) > tol){
     if (f(left) * f(x) < 0)
