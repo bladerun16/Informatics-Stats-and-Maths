@@ -5,7 +5,7 @@
 # if the caracters in positions specular to the middle are different
 # return false, if no difference is found return true 
 # Parameters:
-# - input_str: string to revers
+# - input_str: string to reverse
 # Output:
 # - TRUE or FALSE
 # Use: 
@@ -17,15 +17,14 @@
 #     n - i + 1
 #     - return FALSE
 # - return TRUE, because no difference has been found during the loop
+rm(list = ls())
 is_palindrome <- function(input_str) {
-  n <- nchar(input_str)
-  
-  for (i in 1:(n %/% 2)) {
+  n <- nchar(input_str) # extract lenght
+  for (i in 1:(n %/% 2)) { # loop on first half characters
     if (substr(input_str, i, i) != substr(input_str, n - i + 1, n - i + 1)) {
-      return(FALSE)
-    }
-  }
-  
+      return(FALSE) # found discordance, exit
+    } # if not equal
+  } # for
   return(TRUE)
 } # is_palindrome - end
 
@@ -33,5 +32,5 @@ is_palindrome <- function(input_str) {
 test = "racecar"
 cat("Palindrome ",test,is_palindrome(test),"\n") # Output: TRUE
 test = "abracadabra"
-test="q"
 cat("Palindrome ",test,is_palindrome(test),"\n")  # Output: TRUE
+test = "q"
