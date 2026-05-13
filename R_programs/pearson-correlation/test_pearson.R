@@ -18,6 +18,11 @@ correlation <- x_y$correlation # correlation of generated data
 
 c <- pearson(x,y)
 
+if (is.character(c)){
+  print(c)
+  stop("Correlation not computed.")
+}
+
 # Produce a scatterplot of x and y
 plot(x, y,
      main = paste("Computed correlation with 'pearson' = ", c),

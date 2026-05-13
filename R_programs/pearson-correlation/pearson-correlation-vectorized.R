@@ -17,11 +17,13 @@ pearson <- function(x, y) {
   
   # Validate input size
   if (length(x) != length(y)) {
-    stop("Vectors must have the same length.")
+    return("Vectors must have the same length.")
+    # diagnosis of the problem with the data
   }
   
   if (length(x) < 2) {
-    stop("Vectors must contain at least two elements.")
+    return("Vectors must contain at least two elements.")
+    # diagnosis of the problem with the data
   }
   
   # Center vectors
@@ -36,7 +38,8 @@ pearson <- function(x, y) {
   
   # Prevent division by zero
   if (denominator == 0) {
-    stop("Division by zero: one vector has zero variance.")
+    return("Division by zero: one vector has zero variance.") 
+         # diagnosis of the problem with the data
   }
   
   # Pearson correlation
