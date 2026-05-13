@@ -56,7 +56,7 @@ nearest <- function(s, R){
     min2 <- NULL
   } else {
     minD2 <- min(dist[dist != minD1])
-    min2 <- s[min(which(dist == minD2))]
+    min2 <- s[min(which(dist == minD2))] 
   }
   return(list(min1 = min1, min2 = min2))
 } # nearest - end
@@ -68,10 +68,9 @@ nearest <- function(s, R){
 #    if nst is NULL deal with the case of empy input dataset
 #    if min2 is NULL deal with the case of non-existent second nearest
 
-setwd("~/Dropbox/Didattica/Informatics/0_R/R-lab")
 # 
 #setwd("M:/Sartori/informatics-R-lab")
-s <- scan("lab13-sequence-analysis3-e.txt")
+s <- scan("lab13-sequence-analysis3-a.txt")
 # try files ending with -a, -b, -c, -d, -e for the special cases
 nst <- nearest(s, 5)
 if (is.null(nst)){
