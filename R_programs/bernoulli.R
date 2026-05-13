@@ -120,11 +120,11 @@ bernoulli_dist <- function(repetitions, n, p){
   dist_values <- data.frame(successes = 0:n, frequency = rep(0, n+1))
   for (i in 1:repetitions){
     # why is the solution below wrong?
-    dist_values$frequency[bernoulli_num_succ(n,p)+1] <- 
-      dist_values$frequency[bernoulli_num_succ(n,p)+1] +1
-    # index <- bernoulli_num_succ(n,p)+1
-    # dist_values$frequency[index] <- 
-    #   dist_values$frequency[index] +1
+    # dist_values$frequency[bernoulli_num_succ(n,p)+1] <- 
+    #   dist_values$frequency[bernoulli_num_succ(n,p)+1] +1
+    index <- bernoulli_num_succ(n,p)+1
+    dist_values$frequency[index] <-
+      dist_values$frequency[index] +1
   } # for
   cat("\n")
   dist_values$frequency <- dist_values$frequency/repetitions
@@ -139,10 +139,10 @@ bernoulli_dist <- function(repetitions, n, p){
 
 # bernoulli_num_succ(10,0.5)
 
-result <- bernoulli_dist(10,10,0.5)
+result <- bernoulli_dist(100,20,0.1)
 
 # Load ggplot2
-library(ggplot2)
+# library(ggplot2)
 
 # Plot frequencies for each integer number of successes
 ggplot(result, aes(x = factor(successes), y = frequency)) +

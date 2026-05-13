@@ -12,6 +12,20 @@
 # Returns:
 #   Pearson correlation coefficient
 #------------------------------------------------------------
+# Algorithm
+# initialize avg x and avg y to 0
+# repeat varying i along x 
+#   add i-th element of x to avg x and i-th element
+#       of y to avg y
+# initialize num to 0
+# initialize denL to 0 and denR to 0
+# repeat varying i along x
+#   add (xi - avg x)*(yi - avg y) to num
+#   add (xi - avg x)^2 to denL
+#   add (yi - avg y)^2 to denr
+# correlation <- num / sqrt(denL*denR)
+# return correlation
+#    
 
 pearson <- function(x, y) {
   
